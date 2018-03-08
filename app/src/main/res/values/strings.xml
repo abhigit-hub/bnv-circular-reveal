@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BottomBarTest</string>
+
+    <string name="setting_up">Setting Up..</string>
+    <string name="workspace">Work Space</string>
+    <string name="message_box">Message Box</string>
+    <string name="draft">Draft</string>
+    <string name="settings">Settings</string>
+</resources>

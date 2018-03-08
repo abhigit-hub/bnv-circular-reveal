@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_workspace"
+        android:enabled="true"
+        android:icon="@drawable/vd_home"
+        android:title="@string/workspace"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_message_box"
+        android:enabled="true"
+        android:icon="@drawable/vd_message_box"
+        android:title="@string/message_box"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_draft"
+        android:enabled="true"
+        android:icon="@drawable/vd_draft"
+        android:title="@string/draft"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_settings"
+        android:enabled="true"
+        android:icon="@drawable/vd_settings"
+        android:title="@string/settings"
+        app:showAsAction="ifRoom" />
+</menu>
