@@ -63,16 +63,16 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_workspace:
-                        reveal(0, item.getItemId());
+                        reveal1(0, item.getItemId());
                         break;
                     case R.id.action_message_box:
-                        reveal(1, item.getItemId());
+                        reveal1(1, item.getItemId());
                         break;
                     case R.id.action_draft:
-                        reveal(2, item.getItemId());
+                        reveal1(2, item.getItemId());
                         break;
                     case R.id.action_settings:
-                        reveal(3, item.getItemId());
+                        reveal1(3, item.getItemId());
                         break;
                 }
                 return false;
@@ -91,6 +91,33 @@ public class MainActivity extends AppCompatActivity {
         y = itemView.getY() - bottomBar.getY() + itemView.getHeight()/2;
 
         float finalRadius = Math.max(cx, cy) * 1.2f;
+        Animator reveal = ViewAnimationUtils
+                .createCircularReveal(view, (int) x, (int) y, 0f, finalRadius);
+
+        reveal.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                background.setBackgroundColor(colorList.get(tabPosition));
+                view.setVisibility(View.INVISIBLE);
+            }
+        });
+
+
+        view.setBackgroundColor(colorList.get(tabPosition));
+        reveal.start();
+    }
+
+    public void reveal1(final int tabPosition, int itemId) {
+        view.setVisibility(View.VISIBLE);
+        int cx = view.getWidth();
+        int cy = view.getHeight();
+
+        View itemView = bottomBar.findViewById(itemId);
+
+        x = itemView.getX() - bottomBar.getX() + itemView.getWidth()/2;
+        y = itemView.getHeight()/2;
+
+        float finalRadius = Math.max(cx, cy) * 1f;
         Animator reveal = ViewAnimationUtils
                 .createCircularReveal(view, (int) x, (int) y, 0f, finalRadius);
 
